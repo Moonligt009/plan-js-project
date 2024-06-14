@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="input-task">
+          <input
+            id="text"
+            type="text"
+            placeholder="Какие у вас планы на завтра?"
+          />
+          <button class="button-task" type="button" onclick="addTask()">
+            Добавить
+          </button>
+        </div>
+      </form>
+      <div class="tasks">
+        <div class="task">
+          <div class="task-text"></div>
+          <div class="task-id"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function addTask() {
+        let text = document.getElementById("text").value;
+        localStorage.setItem(localStorage.length + 1, text);
+        document.location.reload(true);
+      }
+      for (let i = 0; i < localStorage.length; i++) {
+        let text = document.createTextNode(
+          localStorage.getItem(localStorage.key(i))
+        );
+        text.className = "task-text";
+
+        let id = document.createTextNode(localStorage.key(i));
+        id.className = "task-id";
+
+        let newTask = document.createElement("div");
+        newTask.className = "task";
+
+        newTask.appendChild(text);
+        newTask.appendChild(id);
+
+        document.getElementById("tasks").appendChild(newTask);
+      }
+    </script>
+  </body>
+</html>
