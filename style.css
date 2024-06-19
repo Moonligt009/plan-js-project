@@ -34,3 +34,7 @@
   border-radius: 7px;
   font-size: 18px;
 }
+body {
+  background-image: url("https://media.cnn.com/api/v1/images/stellar/prod/200126210422-27-kobe-bryant-gallery-restricted.jpg?q=w_3000,c_fill");
+background-size:cover;
+}
